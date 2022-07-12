@@ -1,17 +1,16 @@
-import { FaGamepad } from 'react-icons/fa'
-import { Button } from './styles'
+import { FaGamepad } from "react-icons/fa";
+import { useMenu } from "../../context/MainContext/";
+import { Button } from "./styles";
 
-import { MainContext } from "../../App"
 
-export function MenuButton (){
+
+export function MenuButton() {
+  const { handleToggMenu, showMenu } = useMenu();
+
+  const colorIcon = showMenu ? `#20b2aa` : `#ff6347`;
   return (
-    <MainContext.Consumer>
-{ ({ handelTogglemenu}) => (
-      <Button onClick={handelTogglemenu}>
-      <FaGamepad size={32} color='#ff6347'/>
+    <Button onClick={handleToggMenu}>
+      <FaGamepad size={32} color={colorIcon} />
     </Button>
-)}
-    </MainContext.Consumer>
-
   );
-};
+}

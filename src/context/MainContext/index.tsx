@@ -1,4 +1,4 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 type MainContextData = {
   showMenu: boolean;
@@ -11,7 +11,7 @@ type MainContextProvider = {
 
 export const MainContext = createContext({} as MainContextData);
 
-export function MainContextProvider({ children }: MainContextProvider) {
+export function MainContextProvider ({ children }: MainContextProvider) {
 const [showMenu, setShowMenu] = useState(false);
 
 function handleToggMenu() {
@@ -30,3 +30,5 @@ function handleToggMenu() {
     </MainContext.Provider>
   );
 }
+
+export const useMenu = () => useContext(MainContext);

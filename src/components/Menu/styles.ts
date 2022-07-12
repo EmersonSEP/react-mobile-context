@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavMenu = styled.nav`
+export const NavMenu = styled.div`
   background-color: #000;
   height: 100%;
   width: 100%;

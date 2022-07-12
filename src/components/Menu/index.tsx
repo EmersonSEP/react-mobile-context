@@ -1,19 +1,21 @@
-import { MainContext } from "../../App";
 import { NavMenu } from "./styles";
+import { MainContext, useMenu } from "../../context/MainContext";
+import { useContext } from "react";
 
-export function Menu() {
+
+const Menu = () => {
+const { showMenu } = useContext(MainContext);
   return (
-    <MainContext.Consumer>
-      {({ showMenu }) => (
-        <NavMenu>
-          <ul>
-            <li>XBox</li>
-            <li>PlayStation</li>
-            <li>Nitendo</li>
-            <li>PC</li>
-          </ul>
-        </NavMenu>
-      )}
-    </MainContext.Consumer>
-  );
+      <NavMenu showMenu ={showMenu}>
+      <ul>
+        <li>XBox</li>
+        <li>PlayStation</li>
+        <li>Nitendo</li>
+        <li>PC</li>
+      </ul>
+    </NavMenu> 
+      );
+  
 }
+
+export default Menu;
